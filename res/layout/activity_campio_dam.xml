@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".CampioDAM" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="285dip"
+        android:layout_gravity="top"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="275dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="CAMPIONS!"
+            android:background="@drawable/border"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FF0000"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/TextView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#2E64FE" />
+
+        <TextView
+            android:id="@+id/nom"
+            android:layout_width="275dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:background="#F3F781"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#2E64FE"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Defensa"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#2E64FE" />
+
+        <TextView
+            android:id="@+id/defensa"
+            android:layout_width="275dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:background="#F3F781"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#2E64FE"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Davanter"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#2E64FE" />
+
+        <TextView
+            android:id="@+id/davanter"
+            android:layout_width="275dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:background="#F3F781"
+            android:gravity="center"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#2E64FE"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/premi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/fondo" />
+
+    </LinearLayout>
+
+</LinearLayout>
