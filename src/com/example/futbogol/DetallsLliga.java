@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class DetallsLliga extends Activity {
 
-	private ArrayList<ObjecteLliga> LliguesJoc = new ArrayList<ObjecteLliga>();
+	//private ArrayList<ObjecteLliga> LliguesJoc = new ArrayList<ObjecteLliga>();
 	private String lliga;
 	
 	private LligaSQLiteHelper helper;
@@ -24,14 +24,15 @@ public class DetallsLliga extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detalls_lliga);
 
-		lliga = getIntent().getStringExtra("nomLliga");
-		
 		// crear l'objecte que crea la connexió amb la BD
         helper = new  LligaSQLiteHelper(this, "Lliga.db", null, 1);
         // obtenir l'objecte BD 
         db = helper.getReadableDatabase();
         
         conversor = new LligaConversor(helper);
+        
+        lliga = getIntent().getStringExtra("nomLliga");
+		
 	}
 
 	public void eliminalliga(View view) {
@@ -42,7 +43,7 @@ public class DetallsLliga extends Activity {
 				case DialogInterface.BUTTON_POSITIVE:
 					conversor.remove(lliga);
 					
-					LliguesJoc.remove(lliga);
+					//LliguesJoc.remove(lliga);
 					Toast lligaEliminar = Toast.makeText(
 							getApplicationContext(),
 							"Lliga Eliminada amb èxit!", Toast.LENGTH_SHORT);

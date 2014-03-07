@@ -2,21 +2,16 @@ package com.example.futbogol;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
-public class ObjecteLliga implements Serializable{
+public class ObjecteLliga implements Serializable {
 
 	private String nom;
-	private int codi = 0;
-	private int comptador;
-	
-	public ObjecteLliga(){
+	private int codi;
+
+	public ObjecteLliga() {
 	}
 
 	public ObjecteLliga(String nom) {
-		comptador = codi;
 		this.nom = nom;
-		this.codi = comptador;
-		this.codi++;
 	}
 
 	public int getCodi() {
@@ -33,5 +28,5 @@ public class ObjecteLliga implements Serializable{
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}	
+	}
 }

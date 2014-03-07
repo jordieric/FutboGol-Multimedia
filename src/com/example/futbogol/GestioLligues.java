@@ -1,8 +1,10 @@
 package com.example.futbogol;
 
 import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +30,6 @@ public class GestioLligues extends Activity {
 		// crear l'objecte que crea la connexió amb la BD
         helper = new  LligaSQLiteHelper(this, "Lliga.db", null, 1);
         // obtenir l'objecte BD 
-        db = helper.getReadableDatabase();
         
         conversor = new LligaConversor(helper);
 
@@ -39,9 +40,9 @@ public class GestioLligues extends Activity {
 //			LliguesJoc.add(lligues.get(i));
 //		}
 
+		Cursor cursor = conversor.getAll();
 		
-		
-		adapter = new ArrayAdapterLliga(this, conversor.getAll());
+		adapter = new ArrayAdapterLliga(this, cursor);
 		llistaLligues.setAdapter(adapter);
 		llistaLligues.setClickable(true);
 
@@ -52,8 +53,7 @@ public class GestioLligues extends Activity {
 					public void onItemClick(AdapterView<?> parent,
 							final View view, int position, long id) {
 
-						ObjecteLliga lligaTeclejada = (ObjecteLliga) parent
-								.getItemAtPosition(position);
+						ObjecteLliga lligaTeclejada = (ObjecteLliga)adapter.getItem(position);
 
 						Intent detallsLliga = new Intent(GestioLligues.this,
 								DetallsLliga.class);

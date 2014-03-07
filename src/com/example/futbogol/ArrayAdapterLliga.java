@@ -51,14 +51,13 @@ public class ArrayAdapterLliga extends BaseAdapter {
 	public ObjecteLliga getItem(int pos) {
 		ObjecteLliga olliga = new ObjecteLliga();
 		if(llistaLligues.moveToPosition(pos)) {
-			olliga.setCodi(llistaLligues.getInt(0));
-			olliga.setNom(llistaLligues.getString(1));
+			olliga.setNom(llistaLligues.getString(0));
 		}	
 		return olliga;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return getItemId(position);
+		return getItem(position).getCodi();
 	}
 }

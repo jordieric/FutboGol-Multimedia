@@ -39,17 +39,18 @@ public class LligaConversor {
 	 *            l'objecte a desar
 	 * @return l'id del nou titular desat
 	 */
-	public String save(ObjecteLliga lliga) {
+	public long save(ObjecteLliga lliga) {
+		long index = -1;
 		// s'agafa l'objecte base de dades en mode escriptura
 		SQLiteDatabase db = helper.getWritableDatabase();
 		// es crea un objecte de diccionari (clau,valor) per indicar els valors
 		// a afegir
 		ContentValues dades = new ContentValues();
 
-		dades.put("codi", lliga.getCodi());
 		dades.put("nom", lliga.getNom());
 		try {
 			// volem veure en el log el que passa
+			index = db.insertOrThrow("Lliga", null, dades);
 			Log.i("Lliga",
 					dades.toString() + " afegida amb el nom " + lliga.getNom());
 		} catch (Exception e) {
@@ -57,7 +58,7 @@ public class LligaConversor {
 			Log.e("Lliga", e.getMessage());
 		}
 		db.close();
-		return lliga.getNom();
+		return index;
 	}
 
 	/**
@@ -71,7 +72,7 @@ public class LligaConversor {
 		return db.query(true, "Lliga", new String[] { "nom" }, null, null,
 				null, null, null, null);
 	}
-
+	
 	/**
 	 * Esborra el titular passat per paràmetre
 	 * 
@@ -83,7 +84,7 @@ public class LligaConversor {
 		// obtenir l'objecte BD en mode esriptura
 		SQLiteDatabase db = helper.getWritableDatabase();
 
-		return db.delete("Liga", "nom=" + lliga, null) > 0;
+		return db.delete("Lliga", "nom='" + lliga + "'", null) > 0;
 	}
 
 	/**
