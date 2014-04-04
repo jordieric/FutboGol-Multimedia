@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +29,7 @@ public class Lliga extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lliga);
 
-		lliganova = (TextView) findViewById(R.id.lliganova);
+		lliganova = (TextView) findViewById(R.id.iniciCognom);
 		lligues = new ArrayList<String>();
 		lliguesObjecte = new ArrayList<ObjecteLliga>();
 
@@ -105,5 +108,29 @@ public class Lliga extends Activity {
 			// iLligues.putExtras(dades);
 			startActivity(iLligues);
 		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.lliga, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		// action with ID action_refresh was selected
+		case R.id.stopMusic:
+			if (MenuInicialMusical.mediaPlayer != null) {
+				MenuInicialMusical.mediaPlayer.stop();
+				return true;
+			}
+			break;
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			return super.onOptionsItemSelected(item);
+		}
+		return true;
 	}
 }

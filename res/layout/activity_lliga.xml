@@ -20,7 +20,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/davanter"
+            android:id="@+id/tvCognom"
             android:layout_width="275dp"
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
@@ -32,7 +32,7 @@
             android:textColor="#2E64FE" />
 
         <EditText
-            android:id="@+id/lliganova"
+            android:id="@+id/iniciCognom"
             android:layout_width="275dp"
             android:layout_height="45dp"
             android:background="#FFFFFF"

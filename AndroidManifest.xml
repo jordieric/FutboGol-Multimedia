@@ -9,6 +9,10 @@
         android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -16,8 +20,9 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.futbogol.Index"
-            android:label="@string/app_name" >
+            android:name="com.example.futbogol.IniciActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,32 +30,40 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.Jugades.Jugades"
-            android:label="@string/title_activity_jugades" >
+            android:name="com.example.futbogol.CarnetSociActivity"
+            android:enabled="true"
+            android:label="@string/title_activity_foto_soci"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.futbogol.Famosos"
-            android:label="@string/title_activity_famosos" >
+            android:name="com.example.Jugades.Jugades"
+            android:label="@string/title_activity_jugades"
+            android:parentActivityName="com.example.futbogol.MenuInicialMusical"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.futbogol.Lliga"
-            android:label="@string/title_activity_lliga" >
+            android:label="@string/title_activity_lliga"
+            android:parentActivityName="com.example.futbogol.MenuInicialMusical"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.Jugades.JugadesDetall"
-            android:label="@string/title_activity_jugades_detall" >
-        </activity>
-        <activity
-            android:name="com.example.futbogol.CreacioLliga"
-            android:label="@string/title_activity_creacio_lliga" >
+            android:label="@string/title_activity_jugades_detall"
+            android:parentActivityName="com.example.Jugades.Jugades"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.futbogol.GestioLligues"
-            android:label="@string/title_activity_gestio_lligues" >
+            android:label="@string/title_activity_gestio_lligues"
+            android:parentActivityName="com.example.futbogol.Lliga"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.futbogol.DetallsLliga"
-            android:label="@string/title_activity_detalls_lliga" >
+            android:label="@string/title_activity_detalls_lliga"
+            android:parentActivityName="com.example.futbogol.GestioLligues"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.futbogol.ArrayAdapterLliga"
@@ -58,7 +71,41 @@
         </activity>
         <activity
             android:name="com.example.futbogol.CampioDAM"
-            android:label="@string/title_activity_campio_dam" >
+            android:label="@string/title_activity_campio_dam"
+            android:parentActivityName="com.example.futbogol.DetallsLliga"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.futbogol.Index"
+            android:label="@string/title_activity_inici"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.futbogol.MenuInicialMusical"
+            android:label="@string/title_activity_menu_inicial_musical"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.futbogol.CrearEquipFotos"
+            android:label="@string/title_activity_crear_equip_fotos"
+            android:parentActivityName="com.example.futbogol.MenuInicialMusical"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.futbogol.Equip"
+            android:label="@string/title_activity_equip"
+            android:parentActivityName="com.example.futbogol.MenuInicialMusical"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.futbogol.GravacioGol"
+            android:label="@string/title_activity_gravacio_gol"
+            android:parentActivityName="com.example.futbogol.MenuInicialMusical" >
+        </activity>
+        <activity
+            android:name="com.example.Jugades.JugadesVideos"
+            android:label="@string/title_activity_jugades_videos"
+            android:parentActivityName="com.example.Jugades.Jugades" >
         </activity>
     </application>
 
