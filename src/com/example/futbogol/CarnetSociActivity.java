@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Properties;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.Message;
 import android.provider.MediaStore.Images.Media;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -86,81 +84,97 @@ public class CarnetSociActivity extends Activity {
 		v1.destroyDrawingCache();
 
 		// Enviar correu
-		// enviarCorreu();
+		enviarCorreu();
 
 		// Splash
 		new Handler().postDelayed(new Runnable() {
 			public void run() {
-				// Quan pasen 5 segons mostra la activitat Index.
+				// Quan pasen 10 segons mostra la activitat Index.
 				Intent intent = new Intent(CarnetSociActivity.this,
 						MenuInicialMusical.class);
 				startActivity(intent);
 				finish();
 			};
-		}, 5000);
+		}, 10000);
 	}
 
-	// private void enviarCorreu() {
-	//
-	// Properties props = new Properties();
-	// props.put("mail.smtp.host", "smtp.gmail.com");
-	// props.put("mail.smtp.socketFactory.port", "465");
-	// props.put("mail.smtp.socketFactory.class",
-	// "javax.net.ssl.SSLSocketFactory");
-	// props.put("mail.smtp.auth", "true");
-	// props.put("mail.smtp.port", "465");
-	//
-	// Session session = Session.getDefaultInstance(props,
-	// new javax.mail.Authenticator() {
-	// protected PasswordAuthentication getPasswordAuthentication() {
-	// return new PasswordAuthentication(
-	// "jcoll@infobosccoma.net", "Bxorogi7");
-	// }
-	// });
-	//
-	// try {
-	//
-	// // Per enviar el correu
-	// MimeMessage m = new MimeMessage(session);
-	//
-	// // Qui envia el correu.
-	// m.setFrom(new InternetAddress("jcoll@infobosccoma.net"));
-	//
-	// // Assumpte
-	// m.setSubject("Carnet FUTBOGOL");
-	//
-	// // Missatge
-	// BodyPart text = new MimeBodyPart();
-	// text.setText("Aqui tens el carnet de soci de FUTBOGOL");
-	//
-	// // Imatge
-	// BodyPart adjunt = new MimeBodyPart();
-	// adjunt.setDataHandler(new DataHandler(new FileDataSource(f
-	// .getAbsolutePath())));
-	// adjunt.setFileName("FutboSoci.jpg");
-	//
-	// // Crea el correu
-	// MimeMultipart multiParte = new MimeMultipart();
-	// multiParte.addBodyPart(text);
-	// multiParte.addBodyPart(adjunt);
-	//
-	// m.setContent(multiParte);
-	// m.setRecipients(MimeMessage.RecipientType.TO,
-	// InternetAddress.parse(correu));
-	//
-	// // Envia el correu
-	// Transport t = session.getTransport("smtp");
-	// t.connect("jcoll@infobosccoma.net", "Bxorogi7");
-	// t.sendMessage(m, m.getAllRecipients());
-	//
-	// Toast.makeText(getApplicationContext(),
-	// "Tens el carnet al correu company del FUTBOLIN!",
-	// Toast.LENGTH_SHORT).show();
-	//
-	// t.close();
-	//
-	// } catch (MessagingException e) {
-	// e.printStackTrace();
-	// }
-	// }
+	private void enviarCorreu() {
+
+		Intent intentEnviar = new Intent(android.content.Intent.ACTION_SEND);
+		intentEnviar.putExtra(android.content.Intent.EXTRA_SUBJECT,
+				"Carnet FUTBOSOCI");
+		intentEnviar.putExtra(android.content.Intent.EXTRA_EMAIL,
+				new String[] { correu });
+
+		intentEnviar.setType("text/plain");
+		intentEnviar.putExtra(android.content.Intent.EXTRA_TEXT,
+				"Aqui tens el carnet de soci de FUTBOGOL");
+		intentEnviar.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+		intentEnviar.setType("image/jpeg");
+		intentEnviar.putExtra(Intent.EXTRA_STREAM,
+				Uri.parse(f.getAbsolutePath()));
+		startActivity(Intent.createChooser(intentEnviar, "FutboSoci"));
+
+		// Properties props = new Properties();
+		// props.put("mail.smtp.host", "smtp.gmail.com");
+		// props.put("mail.smtp.socketFactory.port", "465");
+		// props.put("mail.smtp.socketFactory.class",
+		// "javax.net.ssl.SSLSocketFactory");
+		// props.put("mail.smtp.auth", "true");
+		// props.put("mail.smtp.port", "465");
+		//
+		// Session session = Session.getDefaultInstance(props,
+		// new javax.mail.Authenticator() {
+		// protected PasswordAuthentication getPasswordAuthentication() {
+		// return new PasswordAuthentication(
+		// "jcoll@infobosccoma.net", "Bxorogi7");
+		// }
+		// });
+		//
+		// try {
+		//
+		// // Per enviar el correu
+		// MimeMessage m = new MimeMessage(session);
+		//
+		// // Qui envia el correu.
+		// m.setFrom(new InternetAddress("jcoll@infobosccoma.net"));
+		//
+		// // Assumpte
+		// m.setSubject("Carnet FUTBOSOCI");
+		//
+		// // Missatge
+		// BodyPart text = new MimeBodyPart();
+		// text.setText("Aqui tens el carnet de soci de FUTBOGOL");
+		//
+		// // Imatge
+		// BodyPart adjunt = new MimeBodyPart();
+		// adjunt.setDataHandler(new DataHandler(new FileDataSource(f
+		// .getAbsolutePath())));
+		// adjunt.setFileName("FutboSoci.jpg");
+		//
+		// // Crea el correu
+		// MimeMultipart multiParte = new MimeMultipart();
+		// multiParte.addBodyPart(text);
+		// multiParte.addBodyPart(adjunt);
+		//
+		// m.setContent(multiParte);
+		// m.setRecipients(MimeMessage.RecipientType.TO,
+		// InternetAddress.parse(correu));
+		//
+		// // Envia el correu
+		// Transport t = session.getTransport("smtp");
+		// t.connect("jcoll@infobosccoma.net", "Bxorogi7");
+		// t.sendMessage(m, m.getAllRecipients());
+		//
+		// Toast.makeText(getApplicationContext(),
+		// "Tens el carnet al correu company del FUTBOLIN!",
+		// Toast.LENGTH_SHORT).show();
+		//
+		// t.close();
+		//
+		// } catch (MessagingException e) {
+		// e.printStackTrace();
+		// }
+	}
 }

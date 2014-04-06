@@ -113,8 +113,7 @@ public class IniciActivity extends Activity {
 
 					startActivity(i);
 				} else {
-					Toast.makeText(this,
-							"Has de fer la foto en VERTICAL!",
+					Toast.makeText(this, "Has de fer la foto en VERTICAL!",
 							Toast.LENGTH_LONG).show();
 				}
 
