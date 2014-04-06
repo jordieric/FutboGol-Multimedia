@@ -41,39 +41,15 @@ public class CampioDAM extends Activity {
 				"Torpedos"));
 		this.equipsDAM.put(1, new Equipo("Oriol Comas", "Aniol Ronaldo",
 				"Tirites"));
-		this.equipsDAM.put(2, new Equipo("Marc Gurt", "Mercedes Zorrilla",
-				"Persistencia"));
-		this.equipsDAM.put(3, new Equipo("Dani Cano", "Ernest Puigdemont",
-				"Pokemons"));
-		this.equipsDAM.put(4, new Equipo("David Roig", "Marc Soy", "Suspal"));
-		this.equipsDAM.put(5, new Equipo("Marc Nicolau", "Frederico",
-				"En 5 minuts..."));
-		this.equipsDAM.put(6, new Equipo("Xicu.Traïdor", "Jordi.ASIX",
-				"ASIX - DAM....."));
-		this.equipsDAM.put(7, new Equipo("Dolors", "Jaume", "DJ !StopMusic"));
-		this.equipsDAM
-				.put(8, new Equipo("Navpreet", "Jaspreet", "Force India"));
-		this.equipsDAM.put(9, new Equipo("Agustín", "Toni Ricart",
-				"A vore nois / xiquets!"));
-		this.equipsDAM.put(10, new Equipo("Aleix Guix", "Jordi Reixach",
-				"DRuendes"));
-		this.equipsDAM.put(11, new Equipo("Jordi Juvanteny", "Marta",
-				"Coixos Team!"));
 
 		this.premis.put(0,
 				"http://www.motorexperience.es/images/cars/ferrari458600.jpg");
 		this.premis
 				.put(1,
 						"http://upload.wikimedia.org/wikipedia/commons/8/8e/Premio_Rally.png");
-		this.premis
-				.put(2,
-						"http://4.bp.blogspot.com/-RAvH4gcpc4E/UZFQel9pWsI/AAAAAAAAB4k/6HAm5lAQZxs/s1600/Jamon-Serrano-Bodega-Leyenda.jpg");
-		this.premis
-				.put(3,
-						"http://1.bp.blogspot.com/_0U5nGYWz87U/S-sObO4jbbI/AAAAAAAAAGc/JJY6ISi5VKY/s320/pu%C3%B1etazo.jpg");
-
-		int numeroEquip = (int) (Math.random() * 11);
-		numeroPremi = (int) (Math.random() * 4);
+		
+		int numeroEquip = (int) (Math.random() * 2);
+		numeroPremi = (int) (Math.random() * 2);
 
 		guanyador = equipsDAM.get(numeroEquip);
 
