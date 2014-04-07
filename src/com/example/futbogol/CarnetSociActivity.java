@@ -45,7 +45,7 @@ public class CarnetSociActivity extends Activity {
 			Soci soci = (Soci) getIntent().getSerializableExtra("Soci");
 			nom.setText("Nom: " + soci.getNom());
 			cognom.setText("Cognom: " + soci.getCognom());
-			num.setText("Soci nº: " + 00000001);
+			num.setText("Soci nï¿½: " + 00000001);
 			correu = soci.getCorreu();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -128,7 +128,7 @@ public class CarnetSociActivity extends Activity {
 		// new javax.mail.Authenticator() {
 		// protected PasswordAuthentication getPasswordAuthentication() {
 		// return new PasswordAuthentication(
-		// "jcoll@infobosccoma.net", "Bxorogi7");
+		// "jcoll@infobosccoma.net", "XXXXXX");
 		// }
 		// });
 		//
