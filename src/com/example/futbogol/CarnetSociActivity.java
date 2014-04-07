@@ -164,7 +164,7 @@ public class CarnetSociActivity extends Activity {
 		//
 		// // Envia el correu
 		// Transport t = session.getTransport("smtp");
-		// t.connect("jcoll@infobosccoma.net", "Bxorogi7");
+		// t.connect("jcoll@infobosccoma.net", "XXXXXXX");
 		// t.sendMessage(m, m.getAllRecipients());
 		//
 		// Toast.makeText(getApplicationContext(),
